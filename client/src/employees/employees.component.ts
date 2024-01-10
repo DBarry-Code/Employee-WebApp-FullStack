@@ -4,6 +4,7 @@ import { EmployeesService } from '../service/employees.service';
 import { Employee } from '../Types/employees';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employees',
@@ -15,9 +16,24 @@ import { RouterLink } from '@angular/router';
 export class EmployeesComponent implements OnInit {
   employees$!: Observable<Employee[]>;
 
+  constructor(private toastr: ToastrService) {}
+
   employeeService = inject(EmployeesService);
 
   ngOnInit(): void {
-    this.employees$ = this.employeeService.getEmploees();
+    this.getEmployess();
+  }
+
+  delete(id: number) {
+    this.employeeService.deleteEmployee(id).subscribe({
+      next: (reponse) => {
+        this.toastr.success('Employee Deleted');
+        this.getEmployess();
+      },
+    });
+  }
+
+  private getEmployess(): void {
+    this.employees$ = this.employeeService.getEmployees();
   }
 }

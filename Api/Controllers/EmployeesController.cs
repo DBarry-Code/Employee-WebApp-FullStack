@@ -65,9 +65,9 @@ namespace Api.Controllers
 
             var result = await _context.SaveChangesAsync();
             if (result > 0)
-                return Ok("Employee is deleted");
+                return Ok();
 
-            return BadRequest("Unable to deleted employee");
+            return BadRequest();
         }
 
         [HttpPut("{id:int}")]
@@ -86,9 +86,9 @@ namespace Api.Controllers
             var result = await _context.SaveChangesAsync();
 
             if (result > 0)
-                return Ok("Employee sucessfully updated");
+                return Ok();
 
-            return BadRequest("Unable to update data!");
+            return BadRequest();
         }
     }
 }

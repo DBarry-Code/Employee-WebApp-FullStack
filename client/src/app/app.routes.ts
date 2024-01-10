@@ -9,4 +9,5 @@ export const routes: Routes = [
     component: EmployeesComponent,
   },
   { path: 'employees/:id', component: EmployeeFromComponent },
+  { path: 'employee/form', component: EmployeeFromComponent },
 ];
