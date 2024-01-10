@@ -3,11 +3,12 @@ import { Observable } from 'rxjs';
 import { EmployeesService } from '../service/employees.service';
 import { Employee } from '../Types/employees';
 import { AsyncPipe, CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-employees',
   standalone: true,
-  imports: [AsyncPipe, CommonModule],
+  imports: [AsyncPipe, CommonModule, RouterLink],
   templateUrl: './employees.component.html',
   styleUrl: './employees.component.css',
 })
