@@ -25,7 +25,14 @@ you need some tool on your system to run this APP:
 1. open folder after clone repo.
 2. go to /clinet `npm install` to install all package from package.json
 3. run `ng serve`
-4. got to /Api `dotnet watch run` to start the APi server an Swagger UI.
+4. got to /Api `dotnet watch run` to start the APi server an SwaggerUI.
+
+If you get some errors please check SwaggerUI if you're API {port} is correct in /client/src/app/service/employees.service.ts
+if not change it and save!
+
+apiUrl = 'http://localhost:5093/api/Employees';
+
+apiUrl = 'http://localhost:{port}/api/Employees';
 
 ### Play
 
